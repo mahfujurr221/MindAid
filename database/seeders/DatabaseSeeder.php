@@ -14,12 +14,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Creating super admin user
         $superAdmin = User::create([
             'fname' => 'Super',
             'lname' => 'Admin',
             'type' => 'supper-admin', 
-            'email' => 'supper-admin@ehealthcare.com',
+            'email' => 'supper-admin@mind-aid',
             'phone' => '00000000000',
             'password' => bcrypt('supperadmin1234'),
         ]);
@@ -37,7 +36,7 @@ class DatabaseSeeder extends Seeder
             'logo' => 'logo.png',
             'favicon' => 'favicon.png',
             'email' => 'info@e-healthcare.com',
-            'phone' => '01781342259',
+            'phone' => '01884597899',
             'address' => 'Dhaka, Bangladesh',
             'footer_text' => '© 2021 E-Healthcare. All rights reserved.',
             'newslatter_text' => 'Subscribe to our newsletter',

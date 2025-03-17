@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('patient_id')->unique()->nullable();
             $table->string('gender', 55);
-            $table->string('age', 55);
+            $table->date('age');
             $table->timestamps();
         });
     }

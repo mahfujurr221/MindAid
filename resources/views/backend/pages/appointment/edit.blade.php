@@ -22,28 +22,6 @@
                 <div class="col-md-8 offset-md-2">
                     <div class="row">
                         <div class="mb-2 form-group col-md-6">
-                            <label for="doctor_id">Doctor:</label>
-                            <select name="doctor_id" id="doctor_id" class="form-select select2" required>
-                                <option value="">Select Doctor</option>
-                                @foreach ($doctors as $doctor)
-                                <option value="{{ $doctor->id }}" {{ $doctor->id == $appointment->doctor_id ? 'selected' : '' }}>
-                                    {{ $doctor->fullName() }}
-                                </option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="mb-2 form-group col-md-6">
-                            <label for="patient_id">Patient:</label>
-                            <select name="patient_id" id="patient_id" class="form-select select2" required>
-                                <option value="">Select Patient</option>
-                                @foreach ($patients as $patient)
-                                <option value="{{ $patient->id }}" {{ $patient->id == $appointment->patient_id ? 'selected' : '' }}>
-                                    {{ $patient->fullName() }}
-                                </option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="mb-2 form-group col-md-6">
                             <label for="appoinment_date">Appointment Date and Time:</label>
                             <input type="datetime-local" name="appoinment_date" id="appoinment_date" class="form-control" 
                                 value="{{ \Carbon\Carbon::parse($appointment->appoinment_date)->format('Y-m-d\TH:i') }}" required>

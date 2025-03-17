@@ -62,7 +62,8 @@
                         </div>
                         <div class="gap-2 card-footer d-flex">
                             <a href="#" class="btn btn-primary btn-sm flex-grow-1">View Profile</a>
-                            <a href="#" class="btn btn-success btn-sm flex-grow-1">Book Appointment</a>
+                            <a href="{{ route('front.book-appointment', $doctor->id) }}"
+                            class="btn btn-success btn-sm flex-grow-1">Book Appointment</a>
                         </div>
                     </div>
                 </div>

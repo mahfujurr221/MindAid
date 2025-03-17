@@ -12,6 +12,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Backend\DesignationController;
 use App\Http\Controllers\Backend\DoctorController;
 use App\Http\Controllers\Backend\PatientController;
+use App\Http\Controllers\Backend\PaymentController;
 use Illuminate\Support\Facades\Route;
 
 use Illuminate\Support\Facades\Artisan;
@@ -39,11 +40,26 @@ Route::middleware('auth')->prefix('back')->group(function () {
 
     Route::post('/appointments-meetings/{id}/update-status', [AppoinmentController::class, 'updateStatus'])->name('appointments.update-status');
 
+
     Route::get('appointments/authorize', [AppoinmentController::class, 'redirectToappointments'])->name('appointments.authorize');
     Route::get('appointments/callback', [AppoinmentController::class, 'handleCallback'])->name('appointments.callback');
     Route::post('appointments/create-meeting', [AppoinmentController::class, 'createMeeting'])->name('appointments.create-meeting');
 
+    Route::post('appointments/store-prescription', [AppoinmentController::class, 'storePrescription'])->name('appointments.store-prescription');
+    Route::post('appointments/store-test', [AppoinmentController::class, 'storeTest'])->name('appointments.store-test');
 
+    // Prescription and Test Routes
+    Route::get('appointments/{appointment}/prescriptions', [AppoinmentController::class, 'showPrescriptions'])->name('appointments.prescription');
+    Route::get('appointments/{appointment}/tests', [AppoinmentController::class, 'showTests'])->name('appointments.test');
+    
+    //canceled appointments
+    Route::get('appointments/canceled', [AppoinmentController::class, 'canceledAppointments'])->name('appointments.canceled');
+
+    //payments
+    Route::resource('payments', PaymentController::class)->except(['show']);
+
+    // payments update-status
+    Route::post('/payments-meetings/{id}/update-status', [PaymentController::class, 'updateStatus'])->name('payments.update-status');
 
     ///////////////////////////// Roles And Permission Route ///////////////////////////////////
     Route::resource('permissions', PermissionController::class);

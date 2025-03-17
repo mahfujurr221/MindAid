@@ -1,350 +1,574 @@
 @extends('frontend.layouts.master')
 @section('content')
-<!-- Hero Start -->
-<div class="py-5 mb-5 container-fluid bg-primary hero-header">
-    <div class="container py-5">
-        <div class="row justify-content-start">
-            <div class="text-center col-lg-8 text-lg-start">
-                <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5"
-                    style="border-color: rgba(256, 256, 256, .3) !important;">Welcome To Medinova</h5>
-                <h1 class="text-white display-1 mb-md-4">Best Healthcare Solution In Your City</h1>
-                <div class="pt-2">
-                    <a href="" class="mx-2 btn btn-light rounded-pill py-md-3 px-md-5">Find Doctor</a>
-                    <a href="" class="mx-2 btn btn-outline-light rounded-pill py-md-3 px-md-5">Appointment</a>
-                </div>
+<!-- Home Banner -->
+<section class="section section-search">
+    <div class="container-fluid">
+        <div class="banner-wrapper">
+            <div class="banner-header text-center">
+                <h1>Search Doctor, Make an Appointment</h1>
+                <p>Discover the best doctors, clinic & hospital the city nearest to you.</p>
             </div>
+
+            <!-- Search -->
+            <div class="search-box">
+                <form action="#">
+                    <div class="form-group search-location">
+                        <input type="text" class="form-control" placeholder="Search Location">
+                        <span class="form-text">Based on your Location</span>
+                    </div>
+                    <div class="form-group search-info">
+                        <input type="text" class="form-control" placeholder="Search Doctors, Clinics, Hospitals, Diseases Etc">
+                        <span class="form-text">Ex : Dental or Sugar Check up etc</span>
+                    </div>
+                    <button type="submit" class="btn btn-primary search-btn"><i class="fas fa-search"></i> <span>Search</span></button>
+                </form>
+            </div>
+            <!-- /Search -->
+
         </div>
     </div>
-</div>
-<!-- Hero End -->
+</section>
+<!-- /Home Banner -->
 
-
-<!-- About Start -->
-<div class="py-5 container-fluid">
-    <div class="container">
-        <div class="row gx-5">
-            <div class="mb-5 col-lg-5 mb-lg-0" style="min-height: 500px;">
-                <div class="position-relative h-100">
-                    <img class="rounded position-absolute w-100 h-100" src="{{asset('frontend')}}/img/about.jpg"
-                        style="object-fit: cover;">
-                </div>
-            </div>
-            <div class="col-lg-7">
-                <div class="mb-4">
-                    <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">About Us</h5>
-                    <h1 class="display-4">{{$aboutUs->title??''}}</h1>
-                </div>
-
-                <p>{{$aboutUs->description??''}}</p>
-
-                <div class="pt-3 row g-3">
-                    <div class="col-sm-3 col-6">
-                        <div class="py-4 text-center bg-light rounded-circle">
-                            <i class="mb-3 fa fa-3x fa-user-md text-primary"></i>
-                            <h6 class="mb-0">Qualified<small class="d-block text-primary">Doctors</small></h6>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-6">
-                        <div class="py-4 text-center bg-light rounded-circle">
-                            <i class="mb-3 fa fa-3x fa-procedures text-primary"></i>
-                            <h6 class="mb-0">Emergency<small class="d-block text-primary">Services</small></h6>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-6">
-                        <div class="py-4 text-center bg-light rounded-circle">
-                            <i class="mb-3 fa fa-3x fa-microscope text-primary"></i>
-                            <h6 class="mb-0">Accurate<small class="d-block text-primary">Testing</small></h6>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-6">
-                        <div class="py-4 text-center bg-light rounded-circle">
-                            <i class="mb-3 fa fa-3x fa-ambulance text-primary"></i>
-                            <h6 class="mb-0">Free<small class="d-block text-primary">Ambulance</small></h6>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- About End -->
-
-
-<!-- Services Start -->
-<div class="py-5 container-fluid">
-    <div class="container">
-        <div class="mx-auto mb-5 text-center" style="max-width: 500px;">
-            <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Services</h5>
-            <h1 class="display-4">Excellent Medical Services</h1>
-        </div>
-        <div class="row g-5">
-            <div class="col-lg-4 col-md-6">
-                <div
-                    class="text-center rounded service-item bg-light d-flex flex-column align-items-center justify-content-center">
-                    <div class="mb-4 service-icon">
-                        <i class="text-white fa fa-2x fa-user-md"></i>
-                    </div>
-                    <h4 class="mb-3">Emergency Care</h4>
-                    <p class="m-0">Kasd dolor no lorem nonumy sit labore tempor at justo rebum rebum stet, justo elitr
-                        dolor amet sit</p>
-                    <a class="btn btn-lg btn-primary rounded-pill" href="">
-                        <i class="bi bi-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div
-                    class="text-center rounded service-item bg-light d-flex flex-column align-items-center justify-content-center">
-                    <div class="mb-4 service-icon">
-                        <i class="text-white fa fa-2x fa-procedures"></i>
-                    </div>
-                    <h4 class="mb-3">Operation & Surgery</h4>
-                    <p class="m-0">Kasd dolor no lorem nonumy sit labore tempor at justo rebum rebum stet, justo elitr
-                        dolor amet sit</p>
-                    <a class="btn btn-lg btn-primary rounded-pill" href="">
-                        <i class="bi bi-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div
-                    class="text-center rounded service-item bg-light d-flex flex-column align-items-center justify-content-center">
-                    <div class="mb-4 service-icon">
-                        <i class="text-white fa fa-2x fa-stethoscope"></i>
-                    </div>
-                    <h4 class="mb-3">Outdoor Checkup</h4>
-                    <p class="m-0">Kasd dolor no lorem nonumy sit labore tempor at justo rebum rebum stet, justo elitr
-                        dolor amet sit</p>
-                    <a class="btn btn-lg btn-primary rounded-pill" href="">
-                        <i class="bi bi-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div
-                    class="text-center rounded service-item bg-light d-flex flex-column align-items-center justify-content-center">
-                    <div class="mb-4 service-icon">
-                        <i class="text-white fa fa-2x fa-ambulance"></i>
-                    </div>
-                    <h4 class="mb-3">Ambulance Service</h4>
-                    <p class="m-0">Kasd dolor no lorem nonumy sit labore tempor at justo rebum rebum stet, justo elitr
-                        dolor amet sit</p>
-                    <a class="btn btn-lg btn-primary rounded-pill" href="">
-                        <i class="bi bi-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div
-                    class="text-center rounded service-item bg-light d-flex flex-column align-items-center justify-content-center">
-                    <div class="mb-4 service-icon">
-                        <i class="text-white fa fa-2x fa-pills"></i>
-                    </div>
-                    <h4 class="mb-3">Medicine & Pharmacy</h4>
-                    <p class="m-0">Kasd dolor no lorem nonumy sit labore tempor at justo rebum rebum stet, justo elitr
-                        dolor amet sit</p>
-                    <a class="btn btn-lg btn-primary rounded-pill" href="">
-                        <i class="bi bi-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div
-                    class="text-center rounded service-item bg-light d-flex flex-column align-items-center justify-content-center">
-                    <div class="mb-4 service-icon">
-                        <i class="text-white fa fa-2x fa-microscope"></i>
-                    </div>
-                    <h4 class="mb-3">Blood Testing</h4>
-                    <p class="m-0">Kasd dolor no lorem nonumy sit labore tempor at justo rebum rebum stet, justo elitr
-                        dolor amet sit</p>
-                    <a class="btn btn-lg btn-primary rounded-pill" href="">
-                        <i class="bi bi-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Services End -->
-
-
-<!-- Appointment Start -->
-<div class="py-5 my-5 container-fluid bg-primary">
-    <div class="container py-5">
-        <div class="row gx-5">
-            <div class="mb-5 col-lg-6 mb-lg-0">
-                <div class="mb-4">
-                    <h5 class="text-white d-inline-block text-uppercase border-bottom border-5">Appointment</h5>
-                    <h1 class="display-4">Make An Appointment For Your Family</h1>
-                </div>
-                <p class="mb-5 text-white">Eirmod sed tempor lorem ut dolores. Aliquyam sit sadipscing kasd ipsum. Dolor
-                    ea et dolore et at sea ea at dolor, justo ipsum duo rebum sea invidunt voluptua. Eos vero eos vero
-                    ea et dolore eirmod et. Dolores diam duo invidunt lorem.
-                    Elitr ut dolores magna sit. Sea dolore sanctus sed et. Takimata takimata sanctus sed.</p>
-                <a class="px-5 py-3 btn btn-dark rounded-pill me-3" href="">Find Doctor</a>
-                <a class="px-5 py-3 btn btn-outline-dark rounded-pill" href="">Read More</a>
-            </div>
-            <div class="col-lg-6">
-                <div class="p-5 text-center bg-white rounded">
-                    <h1 class="mb-4">Book An Appointment</h1>
-                    <form>
-                        <div class="row g-3">
-                            <div class="col-12 col-sm-6">
-                                <select class="border-0 form-select bg-light" style="height: 55px;">
-                                    <option selected>Choose Department</option>
-                                    <option value="1">Department 1</option>
-                                    <option value="2">Department 2</option>
-                                    <option value="3">Department 3</option>
-                                </select>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <select class="border-0 form-select bg-light" style="height: 55px;">
-                                    <option selected>Select Doctor</option>
-                                    <option value="1">Doctor 1</option>
-                                    <option value="2">Doctor 2</option>
-                                    <option value="3">Doctor 3</option>
-                                </select>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <input type="text" class="border-0 form-control bg-light" placeholder="Your Name"
-                                    style="height: 55px;">
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <input type="email" class="border-0 form-control bg-light" placeholder="Your Email"
-                                    style="height: 55px;">
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <div class="date" id="date" data-target-input="nearest">
-                                    <input type="text" class="border-0 form-control bg-light datetimepicker-input"
-                                        placeholder="Date" data-target="#date" data-toggle="datetimepicker"
-                                        style="height: 55px;">
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <div class="time" id="time" data-target-input="nearest">
-                                    <input type="text" class="border-0 form-control bg-light datetimepicker-input"
-                                        placeholder="Time" data-target="#time" data-toggle="datetimepicker"
-                                        style="height: 55px;">
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <button class="py-3 btn btn-primary w-100" type="submit">Make An Appointment</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Appointment End -->
-
-
-<!-- Team Start -->
-<div class="py-5 container-fluid">
-    <div class="container">
-        <div class="mx-auto mb-5 text-center" style="max-width: 500px;">
-            <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Our Doctors</h5>
-            <h1 class="display-4">Qualified Healthcare Professionals</h1>
-        </div>
-        @foreach($doctors as $doctor)
-        <div class="owl-carousel team-carousel position-relative">
-            <div class="team-item">
-                <div class="overflow-hidden rounded row g-0 bg-light">
-                    <div class="col-12 col-sm-5 h-100">
-                        <img class="img-fluid h-100" src="{{asset('backend/assets/images/users/'.$doctor->image)}}"
-                            style="object-fit: cover;">
-                    </div>
-                    <div class="col-12 col-sm-7 h-100 d-flex flex-column">
-                        <div class="p-4 mt-auto">
-                            <h3>{{$doctor->fullName()}}</h3>
-                            <p class="m-0">
-                                {{$doctor->doctorInfo->department->name??''}}
-                            </p>
-                            <h6 class="mb-4 fw-normal fst-italic text-primary">{{$doctor->doctorInfo->designation->name??''}}</h6>
-                            <p class="m-0">
-                                {{$doctor->doctorInfo->speciality??''}}
-                            </p>
-                        </div>
-                        <div class="p-4 mt-auto d-flex border-top">
-                            <a class="btn btn-primary me-3" href="#">View Profile</a>
-                            <a class="btn btn-outline-primary" href="#">Book Appointment</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        @endforeach
-    </div>
-</div>
-<!-- Team End -->
-
-
-<!-- Testimonial Start -->
-<div class="py-5 container-fluid">
-    <div class="container">
-        <div class="mx-auto mb-5 text-center" style="max-width: 500px;">
-            <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Testimonial</h5>
-            <h1 class="display-4">Patients Say About Our Services</h1>
+<!-- Clinic and Specialities -->
+<section class="section section-specialities">
+    <div class="container-fluid">
+        <div class="section-header text-center">
+            <h2>Clinic and Specialities</h2>
+            <p class="sub-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
         <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="owl-carousel testimonial-carousel">
-                    <div class="text-center testimonial-item">
-                        <div class="mb-5 position-relative">
-                            <img class="mx-auto img-fluid rounded-circle"
-                                src="{{asset('frontend')}}/img/testimonial-1.jpg" alt="">
-                            <div class="bg-white position-absolute top-100 start-50 translate-middle d-flex align-items-center justify-content-center rounded-circle"
-                                style="width: 60px; height: 60px;">
-                                <i class="fa fa-quote-left fa-2x text-primary"></i>
-                            </div>
+            <div class="col-md-9">
+                <!-- Slider -->
+                <div class="specialities-slider slider">
+
+                    <!-- Slider Item -->
+                    <div class="speicality-item text-center">
+                        <div class="speicality-img">
+                            <img src="{{ asset('frontend/images/specialities/specialities-01.png') }}" class="img-fluid" alt="Speciality">
+                            <span><i class="fa fa-circle" aria-hidden="true"></i></span>
                         </div>
-                        <p class="fs-4 fw-normal">Dolores sed duo clita tempor justo dolor et stet lorem kasd labore
-                            dolore lorem ipsum. At lorem lorem magna ut et, nonumy et labore et tempor diam tempor erat.
-                            Erat dolor rebum sit ipsum.</p>
-                        <hr class="mx-auto w-25">
-                        <h3>Patient Name</h3>
-                        <h6 class="mb-3 fw-normal text-primary">Profession</h6>
+                        <p>Urology</p>
                     </div>
-                    <div class="text-center testimonial-item">
-                        <div class="mb-5 position-relative">
-                            <img class="mx-auto img-fluid rounded-circle"
-                                src="{{asset('frontend')}}/img/testimonial-2.jpg" alt="">
-                            <div class="bg-white position-absolute top-100 start-50 translate-middle d-flex align-items-center justify-content-center rounded-circle"
-                                style="width: 60px; height: 60px;">
-                                <i class="fa fa-quote-left fa-2x text-primary"></i>
-                            </div>
+                    <!-- /Slider Item -->
+
+                    <!-- Slider Item -->
+                    <div class="speicality-item text-center">
+                        <div class="speicality-img">
+                            <img src="{{ asset('frontend/images/specialities/specialities-02.png') }}" class="img-fluid" alt="Speciality">
+                            <span><i class="fa fa-circle" aria-hidden="true"></i></span>
                         </div>
-                        <p class="fs-4 fw-normal">Dolores sed duo clita tempor justo dolor et stet lorem kasd labore
-                            dolore lorem ipsum. At lorem lorem magna ut et, nonumy et labore et tempor diam tempor erat.
-                            Erat dolor rebum sit ipsum.</p>
-                        <hr class="mx-auto w-25">
-                        <h3>Patient Name</h3>
-                        <h6 class="mb-3 fw-normal text-primary">Profession</h6>
+                        <p>Neurology</p>
                     </div>
-                    <div class="text-center testimonial-item">
-                        <div class="mb-5 position-relative">
-                            <img class="mx-auto img-fluid rounded-circle"
-                                src="{{asset('frontend')}}/img/testimonial-3.jpg" alt="">
-                            <div class="bg-white position-absolute top-100 start-50 translate-middle d-flex align-items-center justify-content-center rounded-circle"
-                                style="width: 60px; height: 60px;">
-                                <i class="fa fa-quote-left fa-2x text-primary"></i>
-                            </div>
+                    <!-- /Slider Item -->
+
+                    <!-- Slider Item -->
+                    <div class="speicality-item text-center">
+                        <div class="speicality-img">
+                            <img src="{{ asset('frontend/images/specialities/specialities-03.png') }}" class="img-fluid" alt="Speciality">
+                            <span><i class="fa fa-circle" aria-hidden="true"></i></span>
                         </div>
-                        <p class="fs-4 fw-normal">Dolores sed duo clita tempor justo dolor et stet lorem kasd labore
-                            dolore lorem ipsum. At lorem lorem magna ut et, nonumy et labore et tempor diam tempor erat.
-                            Erat dolor rebum sit ipsum.</p>
-                        <hr class="mx-auto w-25">
-                        <h3>Patient Name</h3>
-                        <h6 class="mb-3 fw-normal text-primary">Profession</h6>
+                        <p>Orthopedic</p>
                     </div>
+                    <!-- /Slider Item -->
+
+                    <!-- Slider Item -->
+                    <div class="speicality-item text-center">
+                        <div class="speicality-img">
+                            <img src="{{ asset('frontend/images/specialities/specialities-04.png') }}" class="img-fluid" alt="Speciality">
+                            <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                        </div>
+                        <p>Cardiologist</p>
+                    </div>
+                    <!-- /Slider Item -->
+
+                    <!-- Slider Item -->
+                    <div class="speicality-item text-center">
+                        <div class="speicality-img">
+                            <img src="{{ asset('frontend/images/specialities/specialities-05.png') }}" class="img-fluid" alt="Speciality">
+                            <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                        </div>
+                        <p>Dentist</p>
+                    </div>
+                    <!-- /Slider Item -->
+
                 </div>
+                <!-- /Slider -->
+
             </div>
         </div>
     </div>
-</div>
-<!-- Testimonial End -->
+</section>
+<!-- Clinic and Specialities -->
 
+<!-- Popular Section -->
+<section class="section section-doctor">
+    <div class="container-fluid">
+       <div class="row">
+            <div class="col-lg-4">
+                <div class="section-header ">
+                    <h2>Book Our Doctor</h2>
+                    <p>Lorem Ipsum is simply dummy text </p>
+                </div>
+                <div class="about-content">
+                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum.</p>
+                    <p>web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes</p>
+                    <a href="javascript:;">Read More..</a>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="doctor-slider slider">
 
-<!-- Blog End -->
+                    <!-- Doctor Widget -->
+                    <div class="profile-widget">
+                        <div class="doc-img">
+                            <a href="doctor-profile.html">
+                                <img class="img-fluid" alt="User Image" src="{{ asset('frontend/images/doctors/doctor-01.jpg') }}">
+                            </a>
+                            <a href="javascript:void(0)" class="fav-btn">
+                                <i class="far fa-bookmark"></i>
+                            </a>
+                        </div>
+                        <div class="pro-content">
+                            <h3 class="title">
+                                <a href="doctor-profile.html">Ruby Perrin</a>
+                                <i class="fas fa-check-circle verified"></i>
+                            </h3>
+                            <p class="speciality">MDS - Periodontology and Oral Implantology, BDS</p>
+                            <div class="rating">
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <span class="d-inline-block average-rating">(17)</span>
+                            </div>
+                            <ul class="available-info">
+                                <li>
+                                    <i class="fas fa-map-marker-alt"></i> Florida, USA
+                                </li>
+                                <li>
+                                    <i class="far fa-clock"></i> Available on Fri, 22 Mar
+                                </li>
+                                <li>
+                                    <i class="far fa-money-bill-alt"></i> $300 - $1000
+                                    <i class="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i>
+                                </li>
+                            </ul>
+                            <div class="row row-sm">
+                                <div class="col-6">
+                                    <a href="doctor-profile.html" class="btn view-btn">View Profile</a>
+                                </div>
+                                <div class="col-6">
+                                    <a href="booking.html" class="btn book-btn">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Doctor Widget -->
+
+                    <!-- Doctor Widget -->
+                    <div class="profile-widget">
+                        <div class="doc-img">
+                            <a href="doctor-profile.html">
+                                <img class="img-fluid" alt="User Image" src="{{ asset('frontend/images/doctors/doctor-02.jpg') }}">
+                            </a>
+                            <a href="javascript:void(0)" class="fav-btn">
+                                <i class="far fa-bookmark"></i>
+                            </a>
+                        </div>
+                        <div class="pro-content">
+                            <h3 class="title">
+                                <a href="doctor-profile.html">Darren Elder</a>
+                                <i class="fas fa-check-circle verified"></i>
+                            </h3>
+                            <p class="speciality">BDS, MDS - Oral & Maxillofacial Surgery</p>
+                            <div class="rating">
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="d-inline-block average-rating">(35)</span>
+                            </div>
+                            <ul class="available-info">
+                                <li>
+                                    <i class="fas fa-map-marker-alt"></i> Newyork, USA
+                                </li>
+                                <li>
+                                    <i class="far fa-clock"></i> Available on Fri, 22 Mar
+                                </li>
+                                <li>
+                                    <i class="far fa-money-bill-alt"></i> $50 - $300
+                                    <i class="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i>
+                                </li>
+                            </ul>
+                            <div class="row row-sm">
+                                <div class="col-6">
+                                    <a href="doctor-profile.html" class="btn view-btn">View Profile</a>
+                                </div>
+                                <div class="col-6">
+                                    <a href="booking.html" class="btn book-btn">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Doctor Widget -->
+
+                    <!-- Doctor Widget -->
+                    <div class="profile-widget">
+                        <div class="doc-img">
+                            <a href="doctor-profile.html">
+                                <img class="img-fluid" alt="User Image" src="{{ asset('frontend/images/doctors/doctor-03.jpg') }}">
+                            </a>
+                            <a href="javascript:void(0)" class="fav-btn">
+                                <i class="far fa-bookmark"></i>
+                            </a>
+                        </div>
+                        <div class="pro-content">
+                            <h3 class="title">
+                                <a href="doctor-profile.html">Deborah Angel</a>
+                                <i class="fas fa-check-circle verified"></i>
+                            </h3>
+                            <p class="speciality">MBBS, MD - General Medicine, DNB - Cardiology</p>
+                            <div class="rating">
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="d-inline-block average-rating">(27)</span>
+                            </div>
+                            <ul class="available-info">
+                                <li>
+                                    <i class="fas fa-map-marker-alt"></i> Georgia, USA
+                                </li>
+                                <li>
+                                    <i class="far fa-clock"></i> Available on Fri, 22 Mar
+                                </li>
+                                <li>
+                                    <i class="far fa-money-bill-alt"></i> $100 - $400
+                                    <i class="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i>
+                                </li>
+                            </ul>
+                            <div class="row row-sm">
+                                <div class="col-6">
+                                    <a href="doctor-profile.html" class="btn view-btn">View Profile</a>
+                                </div>
+                                <div class="col-6">
+                                    <a href="booking.html" class="btn book-btn">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Doctor Widget -->
+
+                    <!-- Doctor Widget -->
+                    <div class="profile-widget">
+                        <div class="doc-img">
+                            <a href="doctor-profile.html">
+                                <img class="img-fluid" alt="User Image" src="{{ asset('frontend/images/doctors/doctor-04.jpg') }}">
+                            </a>
+                            <a href="javascript:void(0)" class="fav-btn">
+                                <i class="far fa-bookmark"></i>
+                            </a>
+                        </div>
+                        <div class="pro-content">
+                            <h3 class="title">
+                                <a href="doctor-profile.html">Sofia Brient</a>
+                                <i class="fas fa-check-circle verified"></i>
+                            </h3>
+                            <p class="speciality">MBBS, MS - General Surgery, MCh - Urology</p>
+                            <div class="rating">
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="d-inline-block average-rating">(4)</span>
+                            </div>
+                            <ul class="available-info">
+                                <li>
+                                    <i class="fas fa-map-marker-alt"></i> Louisiana, USA
+                                </li>
+                                <li>
+                                    <i class="far fa-clock"></i> Available on Fri, 22 Mar
+                                </li>
+                                <li>
+                                    <i class="far fa-money-bill-alt"></i> $150 - $250
+                                    <i class="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i>
+                                </li>
+                            </ul>
+                            <div class="row row-sm">
+                                <div class="col-6">
+                                    <a href="doctor-profile.html" class="btn view-btn">View Profile</a>
+                                </div>
+                                <div class="col-6">
+                                    <a href="booking.html" class="btn book-btn">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Doctor Widget -->
+
+                    <!-- Doctor Widget -->
+                    <div class="profile-widget">
+                        <div class="doc-img">
+                            <a href="doctor-profile.html">
+                                <img class="img-fluid" alt="User Image" src="{{ asset('frontend/images/doctors/doctor-05.jpg') }}">
+                            </a>
+                            <a href="javascript:void(0)" class="fav-btn">
+                                <i class="far fa-bookmark"></i>
+                            </a>
+                        </div>
+                        <div class="pro-content">
+                            <h3 class="title">
+                                <a href="doctor-profile.html">Marvin Campbell</a>
+                                <i class="fas fa-check-circle verified"></i>
+                            </h3>
+                            <p class="speciality">MBBS, MD - Ophthalmology, DNB - Ophthalmology</p>
+                            <div class="rating">
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="d-inline-block average-rating">(66)</span>
+                            </div>
+                            <ul class="available-info">
+                                <li>
+                                    <i class="fas fa-map-marker-alt"></i> Michigan, USA
+                                </li>
+                                <li>
+                                    <i class="far fa-clock"></i> Available on Fri, 22 Mar
+                                </li>
+                                <li>
+                                    <i class="far fa-money-bill-alt"></i> $50 - $700
+                                    <i class="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i>
+                                </li>
+                            </ul>
+                            <div class="row row-sm">
+                                <div class="col-6">
+                                    <a href="doctor-profile.html" class="btn view-btn">View Profile</a>
+                                </div>
+                                <div class="col-6">
+                                    <a href="booking.html" class="btn book-btn">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Doctor Widget -->
+
+                    <!-- Doctor Widget -->
+                    <div class="profile-widget">
+                        <div class="doc-img">
+                            <a href="doctor-profile.html">
+                                <img class="img-fluid" alt="User Image" src="{{ asset('frontend/images/doctors/doctor-06.jpg') }}">
+                            </a>
+                            <a href="javascript:void(0)" class="fav-btn">
+                                <i class="far fa-bookmark"></i>
+                            </a>
+                        </div>
+                        <div class="pro-content">
+                            <h3 class="title">
+                                <a href="doctor-profile.html">Katharine Berthold</a>
+                                <i class="fas fa-check-circle verified"></i>
+                            </h3>
+                            <p class="speciality">MS - Orthopaedics, MBBS, M.Ch - Orthopaedics</p>
+                            <div class="rating">
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="d-inline-block average-rating">(52)</span>
+                            </div>
+                            <ul class="available-info">
+                                <li>
+                                    <i class="fas fa-map-marker-alt"></i> Texas, USA
+                                </li>
+                                <li>
+                                    <i class="far fa-clock"></i> Available on Fri, 22 Mar
+                                </li>
+                                <li>
+                                    <i class="far fa-money-bill-alt"></i> $100 - $500
+                                    <i class="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i>
+                                </li>
+                            </ul>
+                            <div class="row row-sm">
+                                <div class="col-6">
+                                    <a href="doctor-profile.html" class="btn view-btn">View Profile</a>
+                                </div>
+                                <div class="col-6">
+                                    <a href="booking.html" class="btn book-btn">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Doctor Widget -->
+
+                    <!-- Doctor Widget -->
+                    <div class="profile-widget">
+                        <div class="doc-img">
+                            <a href="doctor-profile.html">
+                                <img class="img-fluid" alt="User Image" src="{{ asset('frontend/images/doctors/doctor-07.jpg') }}">
+                            </a>
+                            <a href="javascript:void(0)" class="fav-btn">
+                                <i class="far fa-bookmark"></i>
+                            </a>
+                        </div>
+                        <div class="pro-content">
+                            <h3 class="title">
+                                <a href="doctor-profile.html">Linda Tobin</a>
+                                <i class="fas fa-check-circle verified"></i>
+                            </h3>
+                            <p class="speciality">MBBS, MD - General Medicine, DM - Neurology</p>
+                            <div class="rating">
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="d-inline-block average-rating">(43)</span>
+                            </div>
+                            <ul class="available-info">
+                                <li>
+                                    <i class="fas fa-map-marker-alt"></i> Kansas, USA
+                                </li>
+                                <li>
+                                    <i class="far fa-clock"></i> Available on Fri, 22 Mar
+                                </li>
+                                <li>
+                                    <i class="far fa-money-bill-alt"></i> $100 - $1000
+                                    <i class="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i>
+                                </li>
+                            </ul>
+                            <div class="row row-sm">
+                                <div class="col-6">
+                                    <a href="doctor-profile.html" class="btn view-btn">View Profile</a>
+                                </div>
+                                <div class="col-6">
+                                    <a href="booking.html" class="btn book-btn">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Doctor Widget -->
+
+                    <!-- Doctor Widget -->
+                    <div class="profile-widget">
+                        <div class="doc-img">
+                            <a href="doctor-profile.html">
+                                <img class="img-fluid" alt="User Image" src="{{ asset('frontend/images/doctors/doctor-08.jpg') }}">
+                            </a>
+                            <a href="javascript:void(0)" class="fav-btn">
+                                <i class="far fa-bookmark"></i>
+                            </a>
+                        </div>
+                        <div class="pro-content">
+                            <h3 class="title">
+                                <a href="doctor-profile.html">Paul Richard</a>
+                                <i class="fas fa-check-circle verified"></i>
+                            </h3>
+                            <p class="speciality">MBBS, MD - Dermatology , Venereology & Lepros</p>
+                            <div class="rating">
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="d-inline-block average-rating">(49)</span>
+                            </div>
+                            <ul class="available-info">
+                                <li>
+                                    <i class="fas fa-map-marker-alt"></i> California, USA
+                                </li>
+                                <li>
+                                    <i class="far fa-clock"></i> Available on Fri, 22 Mar
+                                </li>
+                                <li>
+                                    <i class="far fa-money-bill-alt"></i> $100 - $400
+                                    <i class="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i>
+                                </li>
+                            </ul>
+                            <div class="row row-sm">
+                                <div class="col-6">
+                                    <a href="doctor-profile.html" class="btn view-btn">View Profile</a>
+                                </div>
+                                <div class="col-6">
+                                    <a href="booking.html" class="btn book-btn">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Doctor Widget -->
+
+                </div>
+            </div>
+       </div>
+    </div>
+</section>
+<!-- /Popular Section -->
+
+<!-- Availabe Features -->
+<section class="section section-features">
+    <div class="container-fluid">
+       <div class="row">
+            <div class="col-md-5 features-img">
+                <img src="{{ asset('frontend/images/features/feature.png') }}" class="img-fluid" alt="Feature">
+            </div>
+            <div class="col-md-7">
+                <div class="section-header">
+                    <h2 class="mt-2">Availabe Features in Our Clinic</h2>
+                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. </p>
+                </div>
+                <div class="features-slider slider">
+                    <!-- Slider Item -->
+                    <div class="feature-item text-center">
+                        <img src="{{ asset('frontend/images/features/feature-01.jpg') }}" class="img-fluid" alt="Feature">
+                        <p>Patient Ward</p>
+                    </div>
+                    <!-- /Slider Item -->
+
+                    <!-- Slider Item -->
+                    <div class="feature-item text-center">
+                        <img src="{{ asset('frontend/images/features/feature-02.jpg') }}" class="img-fluid" alt="Feature">
+                        <p>Test Room</p>
+                    </div>
+                    <!-- /Slider Item -->
+
+                    <!-- Slider Item -->
+                    <div class="feature-item text-center">
+                        <img src="{{ asset('frontend/images/features/feature-03.jpg') }}" class="img-fluid" alt="Feature">
+                        <p>ICU</p>
+                    </div>
+                    <!-- /Slider Item -->
+
+                    <!-- Slider Item -->
+                    <div class="feature-item text-center">
+                        <img src="{{ asset('frontend/images/features/feature-04.jpg') }}" class="img-fluid" alt="Feature">
+                        <p>Laboratory</p>
+                    </div>
+                    <!-- /Slider Item -->
+
+                    <!-- Slider Item -->
+                    <div class="feature-item text-center">
+                        <img src="{{ asset('frontend/images/features/feature-05.jpg') }}" class="img-fluid" alt="Feature">
+                        <p>Operation</p>
+                    </div>
+                    <!-- /Slider Item -->
+
+                    <!-- Slider Item -->
+                    <div class="feature-item text-center">
+                        <img src="{{ asset('frontend/images/features/feature-06.jpg') }}" class="img-fluid" alt="Feature">
+                        <p>Medical</p>
+                    </div>
+                    <!-- /Slider Item -->
+                </div>
+            </div>
+       </div>
+    </div>
+</section>
+<!-- Availabe Features -->
+
 @endsection

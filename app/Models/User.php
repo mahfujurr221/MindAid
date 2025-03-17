@@ -69,12 +69,6 @@ class User extends Authenticatable
         return $this->hasOne(PatientInfo::class, 'patient_id');
     }
 
-    //full name
-    public function fullName()
-    {
-        return $this->fname . ' ' . $this->lname;
-    }
-
     // boot method for handling delete() method
     protected static function boot()
     {

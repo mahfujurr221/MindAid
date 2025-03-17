@@ -21,4 +21,19 @@ class AppoinmentDetails extends Model
     {
         return $this->belongsTo(User::class, 'patient_id');
     }
+
+    public function prescriptions()
+    {
+        return $this->hasMany(PrescriptionInfo::class, 'appoinment_id');
+    }
+
+    public function tests()
+    {
+        return $this->hasMany(TestInfo::class, 'appoinment_id');
+    }
+
+    public function paymentInfo()
+    {
+        return $this->hasOne(PaymentInfo::class, 'appoinment_id');
+    }
 }

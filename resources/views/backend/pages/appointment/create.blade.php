@@ -20,6 +20,7 @@
             <div class="row">
                 <div class="col-md-8 offset-md-2">
                     <div class="row">
+                        @if(auth()->user()->hasRole('Super Admin'))
                         <div class="mb-2 form-group col-md-6">
                             <label for="doctor_id">Doctor:</label>
                             <select name="doctor_id" id="doctor_id" class="form-select select2" required>
@@ -29,6 +30,9 @@
                                 @endforeach
                             </select>
                         </div>
+                        @else   
+                        <input type="hidden" name="doctor_id" value="{{ auth()->user()->id }}">
+                        @endif
                         <div class="mb-2 form-group col-md-6">
                             <label for="patient_id">Patient:</label>
                             <select name="patient_id" id="patient_id" class="form-select select2" required>

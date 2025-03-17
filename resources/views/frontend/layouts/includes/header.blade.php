@@ -1,77 +1,109 @@
-<!-- Topbar Start -->
-<div class="py-2 container-fluid border-bottom d-none d-lg-block">
-    <div class="container">
-        <div class="row">
-            <div class="mb-2 text-center col-md-6 text-lg-start mb-lg-0">
-                <div class="d-inline-flex align-items-center">
-                    <a class="text-decoration-none text-body pe-3" href=""><i class="bi bi-telephone me-2"></i>{{
-                        setting()->phone??'' }}</a>
-                    <span class="text-body">|</span>
-                    <a class="px-3 text-decoration-none text-body" href=""><i class="bi bi-envelope me-2"></i>{{
-                        setting()->email??'' }}</a>
-                </div>
-            </div>
-            <div class="text-center col-md-6 text-lg-end">
-                <div class="d-inline-flex align-items-center">
-                    <a class="px-2 text-body" target="_blank" href="{{ setting()->facebook??'' }}">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a class="px-2 text-body" target="_blank" href="{{ setting()->twitter??'' }}">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a class="px-2 text-body" target="_blank" href="{{ setting()->linkedin??'' }}">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a class="px-2 text-body" target="_blank" href="{{ setting()->instagram??'' }}">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a class="text-body ps-2" target="_blank" href="{{ setting()->youtube??'' }}">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Topbar End -->
-
-
-<!-- Navbar Start -->
-<div class="bg-white shadow-sm container-fluid sticky-top">
-    <div class="container">
-        <nav class="py-3 bg-white navbar navbar-expand-lg navbar-light py-lg-0">
-            <a href="{{ route('website') }}" class="navbar-brand">
-                <h1 class="m-0 text-uppercase text-primary"><i class="fa fa-clinic-medical me-2"></i>E-Healthcare</h1>
+<!-- Header -->
+<header class="header">
+    <nav class="navbar navbar-expand-lg header-nav">
+        <div class="navbar-header">
+            <a id="mobile_btn" href="javascript:void(0);">
+                <span class="bar-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="py-0 navbar-nav ms-auto">
-                    <a href="{{ url('/') }}" 
-                       class="nav-item nav-link {{ request()->is('/') ? 'active' : '' }}">Home</a>
-                       <a href="#" 
-                       class="nav-item nav-link">Appointments</a>
-                       <a href="{{ route('front.doctor') }}"
-                       class="nav-item nav-link {{ request()->routeIs('front.doctor') ? 'active' : '' }}">Doctors</a>
-                       <a href="{{ route('front.about') }}" 
-                          class="nav-item nav-link {{ request()->routeIs('front.about') ? 'active' : '' }}">About</a>
-                    <a href="{{ route('front.contact') }}"
-                       class="nav-item nav-link {{ request()->routeIs('front.contact') ? 'active' : '' }}">Contact</a>
-            
-                    @if(auth()->check())
-                        <a href="{{ route('dashboard') }}" target="_blank" 
-                           class="nav-item nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}">Dashboard</a>
-                    @else
-                        <a href="{{ route('login') }}" target="_blank" 
-                           class="nav-item nav-link {{ request()->routeIs('login') ? 'active' : '' }}">Login</a>
-                        <a href="{{ route('register') }}" target="_blank" 
-                           class="nav-item nav-link {{ request()->routeIs('register') ? 'active' : '' }}">Register</a>
-                    @endif
-                </div>
+            <a href="#" class="navbar-brand logo">
+                <img src="{{ asset('uploads') }}/{{ setting()->logo }}" class="img-fluid" alt="Logo" width="100px">
+            </a>
+        </div>
+        <div class="main-menu-wrapper">
+            <div class="menu-header">
+                <a href="#" class="menu-logo">
+                    {{-- <img src="{{ asset('frontend/images/logo.png') }}" class="img-fluid" alt="Logo"> --}}
+                    <img src="{{ asset('uploads') }}/logo.png" class="img-fluid" alt="Logo">
+                </a>
+                <a id="menu_close" class="menu-close" href="javascript:void(0);">
+                    <i class="fas fa-times"></i>
+                </a>
             </div>
-            
-        </nav>
-    </div>
-</div>
-<!-- Navbar End -->
+            <ul class="main-nav">
+                <li class="active">
+                    <a href="{{route('website')}}">Home</a>
+                </li>
+                <li><a href="{{ route('front.doctor') }}">Doctors</a></li>
+                <li><a href="{{ route('front.appointment') }}">Appointments</a></li>
+                {{-- <li class="has-submenu">
+                    <a href="#">Doctors <i class="fas fa-chevron-down"></i></a>
+                    <ul class="submenu">
+                        <li><a href="{{ route('front.doctor') }}">Doctors</a></li>
+                        <li><a href="{{route('front.appointment')}}">Appointments</a></li>
+                        <li><a href="schedule-timings.html">Schedule Timing</a></li>
+                        <li><a href="my-patients.html">Patients List</a></li>
+                        <li><a href="patient-profile.html">Patients Profile</a></li>
+                        <li><a href="chat-doctor.html">Chat</a></li>
+                        <li><a href="invoices.html">Invoices</a></li>
+                        <li><a href="doctor-profile-settings.html">Profile Settings</a></li>
+                        <li><a href="reviews.html">Reviews</a></li>
+                        <li><a href="doctor-register.html">Doctor Register</a></li>
+                    </ul>
+                </li> --}}
+
+                <li class="has-submenu">
+                    <a href="#">Patients <i class="fas fa-chevron-down"></i></a>
+                    <ul class="submenu">
+                        <li><a href="search.html">Search Doctor</a></li>
+                        <li><a href="doctor-profile.html">Doctor Profile</a></li>
+                        <li><a href="booking.html">Booking</a></li>
+                        <li><a href="checkout.html">Checkout</a></li>
+                        <li><a href="booking-success.html">Booking Success</a></li>
+                        <li><a href="patient-dashboard.html">Patient Dashboard</a></li>
+                        <li><a href="favourites.html">Favourites</a></li>
+                        <li><a href="chat.html">Chat</a></li>
+                        <li><a href="profile-settings.html">Profile Settings</a></li>
+                        <li><a href="change-password.html">Change Password</a></li>
+                    </ul>
+                </li>
+
+                <li class="has-submenu">
+                    <a href="#">Pages <i class="fas fa-chevron-down"></i></a>
+                    <ul class="submenu">
+                        <li><a href="voice-call.html">Voice Call</a></li>
+                        <li><a href="video-call.html">Video Call</a></li>
+                        <li><a href="search.html">Search Doctors</a></li>
+                        <li><a href="calendar.html">Calendar</a></li>
+                        <li><a href="components.html">Components</a></li>
+                        <li class="has-submenu">
+                            <a href="invoices.html">Invoices</a>
+                            <ul class="submenu">
+                                <li><a href="invoices.html">Invoices</a></li>
+                                <li><a href="invoice-view.html">Invoice View</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="blank-page.html">Starter Page</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="register.html">Register</a></li>
+                        <li><a href="forgot-password.html">Forgot Password</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="admin/index.html" target="_blank">Admin</a>
+                </li>
+                <li class="login-link">
+                    <a href="login.html">Login / Signup</a>
+                </li>
+            </ul>
+        </div>
+        <ul class="nav header-navbar-rht">
+            <li class="nav-item contact-item">
+                <div class="header-contact-img">
+                    <i class="far fa-hospital"></i>
+                </div>
+                <div class="header-contact-detail">
+                    <p class="contact-header">Contact</p>
+                    <p class="contact-info-header"> +1 315 369 5943</p>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link header-login" href="login.html">login / Signup </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<!-- /Header -->

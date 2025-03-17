@@ -105,6 +105,7 @@
         </li>
         @endcanany
 
+        @if(!auth()->user()->hasRole('Patient'))
         @canany(['list-appointment', 'create-appointment'])
         <li class="nav-item">
             <a class="nav-link {{ Route::is('appointments.*') ? '' : 'collapsed' }}" data-bs-target="#appointment-nav"
@@ -113,7 +114,7 @@
             </a>
             <ul id="appointment-nav" class="nav-content collapse {{ Route::is('appointments.*') ? 'show' : '' }}"
                 data-bs-parent="#sidebar-nav">
-                @can('create-user')
+                @can('create-appointment')
                 <li>
                     <a href="{{ route('appointments.create') }}"
                         class="{{ Route::currentRouteName() == 'appointments.create' ? 'active nav-link' : '' }}">
@@ -121,7 +122,7 @@
                     </a>
                 </li>
                 @endcan
-                @can('list-user')
+                @can('list-appointment')
                 <li>
                     <a href="{{ route('appointments.index') }}"
                         class="{{ Route::currentRouteName() == 'appointments.index' ? 'active nav-link' : '' }}">
@@ -129,9 +130,48 @@
                     </a>
                 </li>
                 @endcan
+                
+                @can('list-appointment')
+                <li>
+                    <a href="{{ route('appointments.canceled') }}"
+                        class="{{ Route::currentRouteName() == 'appointments.canceled' ? 'active nav-link' : '' }}">
+                        <i class="bi bi-circle"></i><span>Canceled Appointments</span>
+                    </a>
+                </li>
+                @endcan
             </ul>
         </li>
         @endcanany
+        @else
+        @can('list-appointment')
+        <li class="nav-item">
+            <a class="nav-link {{ Route::currentRouteName() == 'appointments.index' ? '' : 'collapsed' }}"
+                href="{{ route('appointments.index') }}">
+                <i class="bi bi-people-fill"></i>
+                <span>Appointment List</span>
+            </a>
+        </li>
+        @endcan
+        
+        @can('list-appointment')
+        <li>
+            <a href="{{ route('appointments.canceled') }}"
+                class="{{ Route::currentRouteName() == 'appointments.canceled' ? 'active nav-link' : '' }}">
+                <i class="bi bi-circle"></i><span>Canceled Appointments</span>
+            </a>
+        </li>
+        @endcan
+        @endif
+
+        @can('list-payment')
+        <li class="nav-item">
+            <a class="nav-link {{ Route::currentRouteName() == 'payments.index' ? '' : 'collapsed' }}"
+                href="{{ route('payments.index') }}">
+                <i class="bi bi-person-lines-fill"></i>
+                <span>Payments</span>
+            </a>
+        </li>
+        @endcan
 
         <!-- End Users Nav -->
 

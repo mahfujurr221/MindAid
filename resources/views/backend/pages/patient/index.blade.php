@@ -46,7 +46,17 @@
                 <td>{{ $data->email }}</td>
                 <td>{{ $data->phone }}</td>
                 <td>{{ $data->patientInfo->gender }}</td>
-                <td>{{ $data->patientInfo->age }}</td>
+                {{-- <td>{{ $data->patientInfo->age }}</td> --}}
+                <td>
+                    <?php 
+                        $birthDate = $data->patientInfo->age;  // Assuming birthdate is stored as 'Y-m-d' format
+                        $birthDateObj = new DateTime($birthDate);
+                        $currentDate = new DateTime();
+                        $age = $currentDate->diff($birthDateObj)->y; // Calculate age in years
+                        echo $age; // Output age in years
+                    ?>
+                </td>                
+                
                 <td>
                     <a class="btn btn-info btn-sm" href="{{ route('patients.edit', $data->id) }}" title="Edit">
                         <i class="bi bi-pencil"></i>

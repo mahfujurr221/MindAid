@@ -24,7 +24,8 @@
                         <i class="bi bi-list "></i>  
                         Permission
                     </a>
-                    
+                    @if($data->id==1 || $data->id==3 || $data->id==4)
+                    @else
                     <button class="btn btn-info btn-sm editButton" data-bs-toggle="modal"
                         data-bs-target="#editRoleModal" data-id="{{ $data->id }}" data-name="{{ $data->name }}" title="Edit">
                         <i class="bi bi-pencil"></i> 
@@ -37,6 +38,7 @@
                             <i class="bi bi-trash"></i>
                         </button>
                     </form>
+                    @endif
                 </td>
             </tr>
             @empty

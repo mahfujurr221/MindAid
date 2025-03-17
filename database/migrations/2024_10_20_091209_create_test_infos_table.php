@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('test_name', 255); 
             $table->string('test_result', 255); 
             $table->string('test_note', 255);
-            $table->string('test_link', 255); 
+            $table->string('test_link', 255)->nullable();
             $table->tinyInteger('status')->default(1); 
             $table->timestamps();
         });

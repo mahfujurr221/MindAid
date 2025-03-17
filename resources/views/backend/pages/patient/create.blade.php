@@ -76,7 +76,7 @@
 
             <div class="mb-2 col-md-6">
                 <label for="age" class="form-label">Age</label>
-                <input type="number" name="age" class="form-control" placeholder="Enter age" value="{{ old('age') }}">
+                <input type="date" name="age" class="form-control" placeholder="Enter age" value="{{ old('age') }}">
                 @if ($errors->has('age'))
                 <span class="text-danger">{{ $errors->first('age') }}</span>
                 @endif

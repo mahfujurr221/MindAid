@@ -88,8 +88,7 @@
             <!-- Age -->
             <div class="mb-2 col-md-6">
                 <label for="age" class="form-label">Age</label>
-                <input type="number" name="age" class="form-control" placeholder="Enter age"
-                    value="{{ old('age', $patient->patientInfo->age) }}">
+                    <input type="date" name="age" class="form-control" placeholder="Enter age" value="{{ old('age', $patient->patientInfo->age) }}">
                 @error('age')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
